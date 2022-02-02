@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs'); %>
+<body>
+    <%- include('../partials/header.ejs'); %>
+    <section class="blog-wrap container all-blogs">
+        <h2>Fl<span class="primary-color">o</span>gs</h2>
+        <ul class="blogs">
+            <% blogs.forEach((blog) => { %>
+                <li>
+                    <div class="blog blog-link">
+                        <h3><span><%=blog.title%></span><a href="/delete/<%=blog._id%> "><img src="./trash.svg" alt="trash icon" class="trash"></a></h3>
+                        <p><%=blog.body.substring(0, 85)%></p>
+                        <a href="/blog/<%=blog._id%>">More on <%=blog.title%></a>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
+    <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

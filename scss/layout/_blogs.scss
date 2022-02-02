@@ -1,0 +1,108 @@
+.blog-wrap {
+    padding: 80px 0 160px 0;
+    text-align: center;
+
+    &>h2 {
+        text-align: center;
+        font-size: 38px;
+        line-height: 40px;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+}
+
+.all-blogs {
+    &>h2 {
+        text-align: left;
+    }
+}
+
+.blogs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+
+    &>li {
+        width: calc(33.33% - 20px);
+        margin: 10px;
+        border: 1px solid #eee;
+        background-color: #fff;
+        border-radius: 12px;
+    }
+
+    .blog {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        padding: 30px 20px;
+        transition: all .2s ease-in;
+
+        h3 {
+            color: #2D4263;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-self: center;
+        }
+
+        p {
+            color: #2D4263;
+            font-weight: 400;
+            display: inline-block;  
+            margin-bottom: 40px;
+            height: 80px;;
+
+            &::after {
+                content: '...';
+                display: inline-block;
+            }
+        }
+        a {
+            display: block;
+            color: $color-pink;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .trash {
+            width: 20px;
+        }
+    }
+}
+
+.no-blog {
+    justify-content: center;
+     
+    .blog {
+        text-align: center;
+
+        h2 {
+            justify-content: center;
+        }
+
+        p {
+            height: initial;
+            margin-bottom: 0;
+            
+            &::after {
+                display: none;
+                
+            }
+        }
+
+        a {
+            display: inline;
+        }
+    }
+}
+
+.more-blogs {
+    display: inline-block;
+    color: $color-pink;
+
+    &:hover {
+        color: $color-white;
+    }
+}

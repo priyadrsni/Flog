@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs'); %>
+<body>
+    <%- include('../partials/header.ejs'); %>
+    <section class="container new-blog">
+        <article>
+            <h2>Create a new food blog</h2>
+            <form action="/create/blog" id="createBlog">
+                <label for="title">
+                <input type="text" id="title" name="title" placeholder="Title" required/> </label>
+                <label for="body">
+                <textarea type="text" id="body" name="body" rows="10" cols="30" placeholder="Content"></textarea> </label>
+                <label for="keywords">
+                <input type="text" id="keywords" name="keywords" placeholder="Keywords" required/> </label>
+                <button class="btn btn-secondary">Create</button>
+            </form>
+        </article>
+
+    </section>
+    <%- include('../partials/footer.ejs'); %>
+
+    <script>
+        const form = document.getElementById('createBlog');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const title = form.elements['title'].value;
+            const body = form.elements['body'].value;
+            const keywords = form.elements['keywords'].value;
+            
+            console.log(title, body, keywords);
+            const response = await fetch('/blog/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title,
+                    body,
+                    keywords
+                })
+            });
+
+            const data = await response.json();
+
+            if(data.status === "success") {
+                window.location.href = '/blogs';
+            }
+        })
+    </script>
+</body>
+</html>

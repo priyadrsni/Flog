@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs'); %>
+  <body>
+    <%- include('./partials/header.ejs'); %>
+    <section class="hero">
+      <picture>
+        <img src="./images/food-bg.jpg" alt="hero bg" />
+      </picture>
+      <div class="container">
+        <h1>Welcome to FLOG<span class="primary-color">!!!</span></h1>
+        <p>
+          We introduce you to some awesome contents in food. <br />Explore more
+          and create your own flogs
+        </p>
+        <a href="/sign-in" class="btn btn-primary">Sign In</a>
+      </div>
+    </section>
+    <section class="blog-wrap container">
+      <h2>Fl<span class="primary-color">o</span>gs</h2>
+      <% if(blogs.length === 0){ %>
+      <ul class="blogs no-blog">
+        <li>
+          <div class="blog blog-link">
+            <h2>No flogs to show</h2>
+            <p>Create one <a href="/blog/create">here</a></p>
+          </div>
+        </li>
+      </ul>
+      <% } else { %>
+      <ul class="blogs">
+        <% blogs.forEach((blog) => { %>
+        <li>
+          <div class="blog blog-link">
+            <h2><%=blog.title%></h2>
+            <p><%=blog.body.substring(0, 85)%></p>
+            <a href="/blog/<%=blog._id%>">More on <%=blog.title%></a>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+      <a href="/blogs" class="more-blogs btn btn-primary">View more</a>
+      <% } %>
+    </section>
+    <%- include('./partials/footer.ejs'); %>
+  </body>
+</html>
