@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs'); %>
+  <body class="one-blog">
+    <%- include('../partials/header.ejs'); %>
+    <main>
+      <section class="left my-profile">
+        <div class="content">
+            <h2 class="title">Profile details</h2>
+            <p class="text"><b>Name: </b><%=user.username%></p>
+            <p class="text"><b>Email: </b><%=user.email%></p>
+            <p class="text"><b>Flogs: </b><%=blogs.length%></p>
+        </div>
+        <a href="/sign-out" class="link">Sign out</a>
+      </section>
+      <%- include('../partials/sidemenu.ejs'); %>
+    </main>
+    <%- include('../partials/footer.ejs'); %>
+  </body>
+</html>

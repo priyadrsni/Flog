@@ -1,17 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs'); %>
+  <body>
+    <%- include('./partials/header.ejs'); %>
+      <main>
+        <section class="left">
+            <section class="container auth-form-cont">
+                <div class="auth-form">
+                    <article class="left">
+                        <h2 class="title">Sign In</h2>
+                        <form action="/sign-in" id="signin" autocomplete="off" method="POST">
+                            <label for="username">
+                            <input type="text" id="username" name="username" placeholder="username" required/> </label>
+                            <label for="password">
+                                <input type="password" id="password" name="password" placeholder="password" required/> 
+                            </label>
+                            <button class="btn btn-small btn-secondary">Login</button>
+                        </form>
+                    </article>
+                    <article class="right">
+                        <h2 class="title">Sign Up</h2>
+                        <form action="/sign-up" id="signup" autocomplete="off" method="POST">
+                            <label for="name">
+                            <input type="text" id="name" name="name" placeholder="username" required/> </label>
+                            <label for="email">
+                                <input type="email" id="email" name="email" placeholder="Email" required/> </label>
+                            <label for="pwd">
+                                <input type="password" id="pwd" name="pwd" placeholder="password" required/> 
+                            </label>
+                            <button class="btn btn-small btn-secondary">Register</button>
+                        </form>
+                    </article>
+                </div>
+            </section>
+        </section>
+        <%- include('./partials/sidemenu.ejs'); %>
+      </main>
+      <%- include('./partials/footer.ejs'); %>
+  </body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs'); %>
 <body>
     <%- include('./partials/header.ejs'); %>
-    <section class="container">
-        <article>
-            <h2>Login</h2>
-            <form>
-                <input type="text" /> 
-            </form>
-        </article>
-
+    <section class="container auth-form-cont">
+        <div class="auth-form">
+            <article class="left">
+                <h2>Sign In</h2>
+                <form action="/sign-in" id="signin" autocomplete="off">
+                    <label for="username">
+                    <input type="text" id="username" name="username" placeholder="username" required/> </label>
+                    <label for="password">
+                        <input type="password" id="password" name="password" placeholder="password" required/> 
+                    </label>
+                    <button class="btn btn-small btn-secondary">Sign In</button>
+                </form>
+            </article>
+            <article class="right">
+                <h2>Sign Up</h2>
+                <form action="/sign-up" id="signup" autocomplete="off">
+                    <label for="name">
+                    <input type="text" id="name" name="name" placeholder="username" required/> </label>
+                    <label for="email">
+                        <input type="email" id="email" name="email" placeholder="Email" required/> </label>
+                    <label for="pwd">
+                        <input type="password" id="pwd" name="pwd" placeholder="password" required/> 
+                    </label>
+                    <button class="btn btn-small btn-secondary">Sign In</button>
+                </form>
+            </article>
+        </div>
     </section>
     <%- include('./partials/footer.ejs'); %>
 </body>
-</html>
+</html> -->

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head.ejs'); %>
-
   <body class="home">
     <%- include('./partials/header.ejs'); %>
     <main>
@@ -17,14 +16,12 @@
             <article class="center">
               <span class="label">Dessert</span>
               <h2 class="title"><%=blogs[randomBlog].title%></h2>
-              <p class="keywords">
-                <%blogs[randomBlog].keywords.split(',').forEach(item => {%>
-                <span><%=item%></span>
-                <%})%>
-              </p>
               <div class="content">
                 <p class="text">
                   <%=blogs[randomBlog].description%>
+                </p>
+                <p class="text">
+                  
                 </p>
                 <a href="/blog/<%=blogs[randomBlog]._id%>" class="link"
                   >Try this recipe
@@ -44,10 +41,10 @@
               </div>
               <div class="more-info">
                 <p class="text">
-                  <span>by</span> <span class="primary-color"><%=blogs[randomBlog].author_name%></span>
+                  <span><b>Rating:&nbsp;&nbsp;</b></span> <span> 4 / 5</span>
                 </p>
                 <p class="text">
-                  <span><b>Rating:&nbsp;&nbsp;</b></span> <span> 4 / 5</span>
+                  <span>by</span> <span class="primary-color"><%=blogs[randomBlog].author_name%></span>
                 </p>
               </div>
             </article>
@@ -75,11 +72,11 @@
                 >
                 <div class="more-info">
                   <p class="text">
-                    <span>by</span>
-                    <span class="primary-color"><%=blog.author_name%></span>
+                    <span><b>Rating:&nbsp;&nbsp;</b></span> <span> 0 / 5</span>
                   </p>
                   <p class="text">
-                    <span><b>Rating:&nbsp;&nbsp;</b></span> <span> 4 / 5</span>
+                    <span>by</span>
+                    <span class="primary-color"><%=blog.author_name%></span>
                   </p>
                 </div>
               </div>
@@ -88,14 +85,6 @@
           </ul>
           <a href="/blogs" class="more-blogs btn btn-primary">View more</a>
           <% } %>
-        </section>
-        <section class="cta-wrap">
-          <div class="cta">
-            <h2 class="title">
-              Want to share your recipe? Sign up to write your first flog!
-            </h2>
-            <a href="/register" class="btn btn-secondary">Create account</a>
-          </div>
         </section>
       </section>
       <%- include('./partials/sidemenu.ejs'); %>

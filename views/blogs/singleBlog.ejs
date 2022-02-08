@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs'); %>
-<body>
+  <%- include('../partials/head.ejs'); %>
+  <body class="one-blog">
     <%- include('../partials/header.ejs'); %>
-    <section class="container ">
-        <h2><%=blog.title%></h2>
-        <p><%=blog.body%></p>
-        <span><%=blog.keywords%></span>
-    </section>
+    <main>
+      <section class="left">
+        <section class="container recipe-wrap">
+          <article class="recipe">
+            <p class="breadcrumbs"><a href="/blogs" class="link">Recipes</a><span class="arrow"></span> <%=blog.title%></p>
+            <h2 class="title"><%=blog.title%></h2>
+            <p class="keywords">
+              <%blog.keywords.split(',').forEach(item => {%>
+              <span><%=item%></span>
+              <%})%>
+            </p>
+            <div class="content">
+              <%blog.body[0].split('\n').forEach(item => {%> <%if(item === '\r')
+              {%>
+              <br />
+              <% } else { %>
+              <p class="text"><%=item%></p>
+              <% } %> <%})%>
+            </div>
+            <p class="text author">by <span><%=blog.author_name%></span></p>
+          </article>
+          <picture>
+            <img src="<%=blog.image%>" alt="Recipe image" />
+          </picture>
+        </section>
+      </section>
+      <%- include('../partials/sidemenu.ejs'); %>
+    </main>
     <%- include('../partials/footer.ejs'); %>
-</body>
+  </body>
 </html>

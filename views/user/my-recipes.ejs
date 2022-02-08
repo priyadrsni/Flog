@@ -11,15 +11,16 @@
             </picture>
         </article>
           <section class="blogs">
-            <h2 class="title"><span>Recipes</span></h2>
-            <div class="dropdown-wrap">
+            <h2 class="title"><span>My Recipes</span></h2>
+            <!-- <div class="dropdown-wrap">
                 <div class="dropdown"><span>All recipes</span></div>
                 <ul class="dropdown-menu">
                     <li>All recipes</li>
                     <li>Desserts</li>
                     <li>Main course</li>
                 </ul>
-            </div>
+            </div> -->
+            <div class="add-blog"><a href="/blog/create" class="btn btn-secondary">Add flog</a></div>
             <% if(blogs.length===0){ %>
               <ul class="card-wrap no-blog">
                 <li class="card no-blog">
@@ -40,7 +41,7 @@
                     >
                     <div class="more-info">
                       <p class="text">
-                        <span><b>Rating:&nbsp;&nbsp;</b></span> <span> 4 / 5</span>
+                        <span><b>Rating:&nbsp;&nbsp;</b></span> <span> 0 / 5</span>
                       </p>
                       <p class="text">
                         <span>by</span> <span class="primary-color"><%=blog.author_name%></span>

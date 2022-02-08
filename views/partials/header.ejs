@@ -1,11 +1,16 @@
 <header>
     <div class="main-header container">
-        <a href="/" class="logo"><p>Food<span class="primary-color">BL<img src="/images/pizza.svg" alt="pizza icon" class="pizza"/>G</span></p></a> 
+        <a href="/" class="logo"><img src="/images/logo.svg" alt="logo"></a> 
         <nav>
-            <a href="/">Home</a>
-            <a href="/blogs">Flogs</a>
-            <a href="/blog/create">New flog</a>
-            <a href="/sign-in">Sign In</a>
+            <%if(!locals.user) {%>
+                <a href="/" class="<%= title === 'Homepage' ? 'active' : ''%>">Home</a>
+                <a href="/blogs" class="<%= title === 'All blogs' ? 'active' : ''%>">Recipes</a>
+                <a href="/login" class="<%= title === 'Sign in' ? 'active' : ''%>">Sign In/Register</a>
+            <%} else {%>
+                <a href="/" class="<%= title === 'Homepage' ? 'active' : ''%>">Home</a>
+                <a href="/my-blogs" class="<%= title === 'All blogs' ? 'active' : ''%>">My Recipes</a>
+                <a href="/profile" class="<%= title === 'Profile' ? 'active' : ''%>"><%=user.username%> <img src="/images/profile-icon.svg" alt="Profile" class="profile"> </a>
+            <%}%>
         </nav>
     </div>
 </header>

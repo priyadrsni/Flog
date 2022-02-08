@@ -1,53 +1,52 @@
-const Blog = require('../models/database');
+import Blog from '../models/database.js';
 
-const homepage = async (req, res) => {
-    const blogs = await Blog.find().sort({createdAt: -1}).limit(3);
-    res.render("home", { title: "Homepage", blogs });
-}
-
-const allBlogs = async (req, res) => {
+export const allBlogs = async (req, res) => {
     const blogs = await Blog.find().sort({createdAt: -1});
-    res.render('blogs/allBlogs', { title: "All blogs", blogs })
+    res.render('blogs/allBlogs', { title: "Recipes", blogs, user: req.user ? req.user : null })
 }
 
-const createBlog = async (req, res) => {
-    res.render('blogs/create', { title: "Create new blog" });
+export const createBlog = (req, res) => {
+    res.render('blogs/create', { title: "New blog", draft: undefined, user: req.user ? req.user : null });
 }
 
-const createBlogPost = async (req, res) => {
-    const { title, body, keywords } = req.body;
+export const createBlogPost = async (req, res) => {
+    const { title, image, description, body, keywords, name } = req.body;
     try {
         const newBlog = new Blog({
             title,
+            image,
+            description,
             body,
-            keywords
+            keywords,
+            author_name: name,
         });
     
         await newBlog.save();
-        res.status(200).json({ status: "success" });
+        res.status(200).redirect('/blogs');
     }
 
     catch (err) {
         console.log(err);
-        res.status(401).json({ status: "failure" });
+        res.redirect('blog/create', { title: "New blog", draft: req.body, user: req.user ? req.user : null });
     }
 }
 
-const singleBlog = async (req, res) => {
+export const singleBlog = async (req, res) => {
     const blog = await Blog.findById(req.params.id);
-    res.render('blogs/singleBlog', { title: blog.title, blog });
+    res.render('blogs/singleBlog', { title: blog.title, blog, user: req.user ? req.user : null });
 }
 
-const deleteBlog = async (req, res) => {
+export const deleteBlog = async (req, res) => {
     const blog = await Blog.deleteOne({ _id: req.params.id });
     res.redirect('/blogs');
 }
 
-module.exports = {
-    homepage,
-    allBlogs,
-    createBlog,
-    createBlogPost,
-    singleBlog,
-    deleteBlog
-}
+// module.exports = {
+//     homepage,
+//     authenticate,
+//     allBlogs,
+//     createBlog,
+//     createBlogPost,
+//     singleBlog,
+//     deleteBlog
+// }
