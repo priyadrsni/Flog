@@ -1,0 +1,32 @@
+main {
+    padding-right: 100px;
+
+    aside.right {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin-left: auto;
+        width: 100px;
+        height: 100vh;
+        padding: 50px 20px 20px 20px;
+        background-color: $brand-primary-bg;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    
+        img {
+            width: 40px;
+            @extend .animation-spin;
+        }
+    
+        .text {
+            text-transform: capitalize;
+            writing-mode: tb;
+            transform: rotate(180deg);
+            @extend .link-light;
+            @extend .text-md;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.card-wrap {
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            width: calc(25% - 20px);
+            margin: 0 0 20px 20px;
+            border: 1px solid $color-grey-100;
+            background-color: $brand-light-bg;
+        }
+}

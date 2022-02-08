@@ -1,10 +1,15 @@
 footer {
-    background-color: #DC2A74;
+    padding-right: 100px;
+    background-color: $color-black;
     .main-footer {
         display: flex;
         justify-content: space-between;
         padding-top: 40px;
         padding-bottom: 40px;
+
+        .logo > p {
+            font-size: 20px;
+        }
     
         p {
             color: #eee;

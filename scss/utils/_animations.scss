@@ -1,0 +1,53 @@
+.animation {
+    &-spin {
+        animation: spin 1.5s linear infinite;
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    &-sway {
+        animation: sway 0.5s linear infinite;
+
+        @keyframes sway {
+            0% {
+                margin-left: 0px;
+            }
+            25% {
+                margin-left: 2.5px;
+            }
+            50% {
+                margin-left: 5px;
+            }
+            100% {
+                margin-left: 0px;
+            }
+        }
+    }
+
+    &-bounce {
+        position: relative;
+        animation: bounce 1s linear infinite;
+
+        @keyframes bounce {
+            0% {
+                top: 0px;
+            }
+            25% {
+                top: -10px;
+            }
+            50% {
+                top: -20px;
+            }
+            100% {
+                top: 0px;
+            }
+        }
+    }
+}

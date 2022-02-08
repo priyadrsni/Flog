@@ -1,0 +1,34 @@
+.my-profile {
+    @extend .container;
+    padding: 40px 0 120px 0;
+
+    .content {
+        margin-bottom: 60px;
+    }
+
+    .title {
+        @extend .title-lg;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: $brand-primary-text;
+    }
+
+    .text {
+        @extend .text-sm;
+        font-weight: 500;
+        margin-bottom: 30px;
+
+        b {
+            display: inline-block;
+            min-width: 60px;
+            margin-right: 5px;
+        }
+    }
+
+    .link {
+        @extend .text-sm;
+        font-weight: 600;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+}

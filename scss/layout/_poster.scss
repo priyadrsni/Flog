@@ -1,0 +1,11 @@
+.poster {
+    height: 400px;
+    overflow: hidden;
+    @extend .backdrop;
+    border-bottom: 3px solid $color-orange;
+
+    img {
+        width: 100%;
+
+    }
+}

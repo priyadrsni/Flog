@@ -1,34 +1,54 @@
 header {
-    background-color: #eee;
-    box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.2);
-    
-    .main-header {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        
-        p {
-            color: #191919;
-            font-weight: bold;
-        }
+  padding-right: 100px;
+  background-color: $brand-light-bg;
 
-        .pizza {
-            vertical-align: top;
-            width: 20px;
-        }
-    
-        nav>a {
-            color: #191919;
-            text-decoration: none;
-            margin: 0 20px;
-            padding-bottom: 5px;
-            font-weight: 600;
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+    transition: all 0.3s ease;
+  }
+  .logo > img {
+    display: block;
+  }
+  nav {
+    & > a {
+      color: #191919;
+      text-decoration: none;
+      margin: 0 20px;
+      padding-bottom: 5px;
+      font-weight: 600;
 
-            &:hover,
-            &:active {
-                color: $color-pink;
-            }
-        }
+      &:hover,
+      &:active,
+      &.active {
+        color: $brand-primary-bg;
+      }
     }
+
+    .profile {
+      width: 15px;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.home {
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    nav {
+      padding-right: 80px;
+    }
+  }
+}
+
+.create-blog {
+  header {
+    padding-right: 0;
+  }
 }
