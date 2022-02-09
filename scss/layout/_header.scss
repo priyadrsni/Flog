@@ -3,16 +3,18 @@ header {
   background-color: $brand-light-bg;
 
   .main-header {
+    @extend .container;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
     transition: all 0.3s ease;
   }
   .logo > img {
     display: block;
   }
-  nav {
+  .main-nav {
     & > a {
       color: #191919;
       text-decoration: none;
@@ -32,6 +34,70 @@ header {
       vertical-align: bottom;
     }
   }
+
+  .mobile-nav {
+    display: none;
+    position: relative;
+    .hamburger {
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        margin: 5px 0;
+        background-color: $brand-dark-bg;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .menu {
+      display: none;
+      box-shadow: rgba(0, 0, 0, 0.1) -3px 5px 8px 3px;
+      background-color: $brand-light-bg;
+      padding: 0;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      z-index: 1;
+      font-weight: 500;
+      overflow: hidden;
+      @extend .animation-expand;
+      transform-origin: top right;
+      animation: expand 0.6s ease-in forwards;
+
+      a {
+        display: block;
+        background-color: $brand-light-bg;
+        color: $brand-tertiary-text;
+        cursor: pointer;
+        padding: 16px 30px;
+        text-align: left;
+        white-space: nowrap;
+      }
+    }
+
+    &.open {
+      display: block;
+      position: relative;
+
+      .hamburger {
+        .center {
+          display: none;
+        }
+        .top {
+          transform: rotate(45deg) translate(5px, 0px);
+        }
+        .bottom {
+          transform: rotate(-45deg) translate(5px, 0px);
+        }
+      }
+
+      .menu {
+        display: block;
+      }
+    }
+  }
 }
 
 .home {
@@ -41,7 +107,7 @@ header {
     left: 0;
     right: 0;
     background-color: transparent;
-    nav {
+    .main-nav {
       padding-right: 80px;
     }
   }
@@ -50,5 +116,33 @@ header {
 .create-blog {
   header {
     padding-right: 0;
+  }
+}
+
+@include below-desktop-lg {
+  header {
+    padding-right: 0;
+  }
+}
+
+@include below-desktop {
+  header {
+    padding-right: 0;
+  }
+}
+
+@include below-tablet {
+  header {
+    .main-header {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .main-nav {
+      padding-right: 0;
+      display: none;
+    }
+    .mobile-nav {
+      display: block;
+    }
   }
 }

@@ -1,26 +1,45 @@
 footer {
-    padding-right: 100px;
-    background-color: $color-black;
-    .main-footer {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 40px;
-        padding-bottom: 40px;
+  padding-right: 100px;
+  background-color: $color-black;
+  .main-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
 
-        .logo > p {
-            font-size: 20px;
-        }
-    
-        p {
-            color: #eee;
-            font-weight: bold;
-        }
-        .pizza {
-            vertical-align: top;
-            width: 20px;
-        }
-        span {
-            color: #eee;
+    .logo > p {
+      font-size: 20px;
+    }
+
+    p {
+      color: #eee;
+      font-weight: bold;
+    }
+    .pizza {
+      vertical-align: top;
+      width: 20px;
+    }
+    span {
+      color: #eee;
+    }
+  }
+}
+
+@include below-desktop-lg {
+  footer {
+    padding-right: 0;
+  }
+}
+
+@include below-tablet {
+  footer {
+    .main-footer {
+        flex-direction: column;
+        align-items: center;
+
+        .logo {
+            margin-bottom: 20px;
         }
     }
+  }
 }

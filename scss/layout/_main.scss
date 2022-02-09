@@ -30,3 +30,13 @@ main {
         }
     }
 }
+
+
+@include below-desktop-lg {
+    main {
+        padding-right: 0;
+        aside.right {
+            display: none;
+        }
+    }
+}

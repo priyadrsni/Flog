@@ -9,3 +9,12 @@
             background-color: $brand-light-bg;
         }
 }
+
+@include below-tablet {
+    .card-wrap {
+        .card {
+            width: 100%;
+            margin: 0 0 20px 20px;
+        }
+}
+}

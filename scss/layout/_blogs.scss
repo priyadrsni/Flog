@@ -1,6 +1,7 @@
 .blogs {
   @extend .container;
-  padding: 120px 0 120px 0;
+  padding-top: 120px;
+  padding-bottom: 120px;
   text-align: center;
 
   h2 {
@@ -50,6 +51,7 @@
       position: relative;
 
       img {
+        object-fit: cover;
         width: 100%;
         height: 100%;
         position: absolute;
@@ -119,6 +121,7 @@
   .blogs {
     position: relative;
     padding-top: 0;
+    padding-top: 107px;
 
     h2 {
       position: absolute;
@@ -145,13 +148,12 @@
     }
 
     .dropdown-wrap {
-      padding-top: 87px;
+      display: none;
       padding-bottom: 40px;
     }
 
     .add-blog {
       text-align: right;
-      padding-top: 87px;
       padding-bottom: 40px;
       .btn {
         min-width: 120px;
@@ -174,6 +176,8 @@
 
       img {
         width: 100%;
+        @extend .animation-expand;
+        animation: expand 0.4s ease-in forwards;
       }
     }
   }
@@ -198,7 +202,29 @@
       }
     }
 
+    .heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .edit,
+      .trash {
+        vertical-align: middle;
+
+        &:hover {
+          fill: $color-orange;
+        }
+      }
+      .edit {
+        width: 25px;
+      }
+      .trash {
+        width: 30px;
+      }
+    }
+
     .title {
+      display: inline-block;
       @extend .title-lg;
       font-weight: 600;
       margin-bottom: 10px;
@@ -222,6 +248,61 @@
       color: $brand-tertiary-text;
       span {
         color: $brand-primary-bg;
+      }
+    }
+  }
+}
+
+@include below-tablet {
+  .keywords {
+    margin-bottom: 20px;
+  }
+  
+  .blogs {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    h2 {
+      margin-bottom: 40px;
+      span {
+        padding: 0 20px;
+      }
+    }
+
+    .card {
+      .content {
+        h3 {
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .all-blogs {
+    .blogs {
+      padding-top: 71px;
+      h2 {
+        top: -31px;
+        padding: 15px 0;
+        margin: 0 20px;
+      }
+    }
+  }
+
+  .one-blog {
+    .recipe-wrap {
+      flex-direction: column-reverse;
+      padding-top: 0;
+
+      .recipe,
+      picture {
+        width: 100%;
+        margin-bottom: 40px;;
+      }
+      .heading {
+        .edit {
+          margin-bottom: 10px;
+        }
       }
     }
   }

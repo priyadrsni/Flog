@@ -45,10 +45,10 @@ body {
     font-size: 18px;
     line-height: 26px;
   }
-  &-sm {
-    font-size: 16px;
-    line-height: 20px;
-  }
+  // &-sm {
+  //   font-size: 16px;
+  //   line-height: 20px;
+  // }
   &-xs {
     font-size: 14px;
     line-height: 20px;
@@ -84,4 +84,30 @@ p.text {
 
 .primary-color {
     color: $brand-primary-bg;
+}
+
+
+@include below-desktop {
+  .title {
+    &-xl {
+      font-size: 30px;
+      line-height: 36px;
+    }
+    &-lg {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    &-md {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    // &-sm {
+    //   font-size: 16px;
+    //   line-height: 20px;
+    // }
+    &-xs {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
 }

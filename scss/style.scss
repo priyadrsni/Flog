@@ -1,6 +1,7 @@
 @import './base/_reset', 
         './base/_variables',
-        './base/_common',
+        './utils/_mixins',
+        './utils/_common',
         './utils/_typography',
         './utils/_animations',
         './components/_button',
