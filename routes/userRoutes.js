@@ -1,9 +1,9 @@
 import express from 'express';
-import { myprofile, myrecipes } from '../controllers/userController.js';
+import { getMyprofile, getMyrecipes } from '../controllers/userController.js';
 
 const route = express.Router();
 
-route.get("/profile", myprofile);
-route.get('/my-blogs', myrecipes);
+route.get("/profile", getMyprofile);
+route.get('/my-blogs', getMyrecipes);
 
 export default route;

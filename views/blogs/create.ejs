@@ -1,45 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs'); %>
-<body class="create-blog">
+  <%- include('../partials/head.ejs'); %>
+  <body class="create-blog">
     <%- include('../partials/header.ejs'); %>
     <section class="container new-blog">
-        <article>
-            <form action="/blog/create" id="createBlog" autocomplete="off" method="POST">
-                <% if(draft !== undefined) {%>
-                    <div>
-                        <label for="title">
-                       <input type="text" id="title" name="title" placeholder="Title (34 characters)" value="<%=draft.title%>" required maxlength="34"/> </label>
-                       <label for="image">
-                           <input type="text" id="image" name="image" placeholder="Image link" value="<%=draft.image%>" required/> </label></div>
-                       <label for="description">
-                           <input type="text" id="description" name="description" placeholder="Short description" value="<%=draft.description%>" required/> </label>
-                       <label for="body">
-                       <textarea type="text" id="body" name="body" rows="10" cols="30" placeholder="Content" value="<%=draft.body%>"></textarea> </label>
-                       <label for="keywords">
-                       <input type="text" id="keywords" name="keywords" placeholder="Keywords" value="<%=draft.keywords%>" required/> </label>
-                       <label for="name">
-                           <input type="text" id="name" name="name" placeholder="Your name" value="<%=draft.name%>" required/> </label>
-                       <button class="btn btn-secondary">Create</button>
-                <%} else {%>
-                    <div>
-                        <label for="title">
-                       <input type="text" id="title" name="title" placeholder="Title (34 characters)" required maxlength="34"/> </label>
-                       <label for="image">
-                           <input type="text" id="image" name="image" placeholder="Image link" required/> </label></div>
-                       <label for="description">
-                           <input type="text" id="description" name="description" placeholder="Short description" required/> </label>
-                       <label for="body">
-                       <textarea type="text" id="body" name="body" rows="10" cols="30" placeholder="Content" required></textarea> </label>
-                       <label for="keywords">
-                       <input type="text" id="keywords" name="keywords" placeholder="Keywords (comma separated)" required/> </label>
-                       <label for="name">
-                           <input type="text" id="name" name="name" placeholder="Your name" value="<%=locals.user ? user.username : ''%>" required/> </label>
-                       <button class="btn btn-secondary">Create</button>
-                <%}%>
-            </form>
-        </article>
+      <article>
+        <% if(draft !== undefined) {%>
+        <form
+          action="/update/<%=draft._id%>"
+          id="createBlog"
+          autocomplete="off"
+          method="POST"
+        >
+          <div>
+            <label for="title">
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Title (34 characters)"
+                value="<%=draft.title%>"
+                required
+                maxlength="34"
+              />
+            </label>
+            <label for="image">
+              <input
+                type="text"
+                id="image"
+                name="image"
+                placeholder="Image link"
+                value="<%=draft.image%>"
+                required
+              />
+            </label>
+          </div>
+          <label for="description">
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Short description"
+              value="<%=draft.description%>"
+              required
+            />
+          </label>
+          <label for="body">
+            <textarea
+              type="text"
+              id="body"
+              name="body"
+              rows="10"
+              cols="30"
+              placeholder="Content"
+            ><%=draft.body[0]%></textarea>
+          </label>
+          <label for="keywords">
+            <input
+              type="text"
+              id="keywords"
+              name="keywords"
+              placeholder="Keywords"
+              value="<%=draft.keywords%>"
+              required
+            />
+          </label>
+          <label for="name">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              value="<%=draft.author_name   %>"
+              required
+            />
+          </label>
+          <button class="btn btn-secondary">Update</button>
+        </form>
+        <%} else {%>
+        <form
+          action="/blog/create"
+          id="createBlog"
+          autocomplete="off"
+          method="POST"
+        >
+          <div>
+            <label for="title">
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Title (34 characters)"
+                required
+                maxlength="34"
+              />
+            </label>
+            <label for="image">
+              <input
+                type="text"
+                id="image"
+                name="image"
+                placeholder="Image link"
+                required
+              />
+            </label>
+          </div>
+          <label for="description">
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Short description"
+              required
+            />
+          </label>
+          <label for="body">
+            <textarea
+              type="text"
+              id="body"
+              name="body"
+              rows="10"
+              cols="30"
+              placeholder="Content"
+              required
+            ></textarea>
+          </label>
+          <label for="keywords">
+            <input
+              type="text"
+              id="keywords"
+              name="keywords"
+              placeholder="Keywords (comma separated)"
+              required
+            />
+          </label>
+          <label for="name">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              value="<%=locals.user ? user.username : ''%>"
+              required
+            />
+          </label>
+          <button class="btn btn-secondary">Create</button>
+        </form>
+        <%}%>
+      </article>
     </section>
     <%- include('../partials/footer.ejs'); %>
-</body>
+  </body>
 </html>

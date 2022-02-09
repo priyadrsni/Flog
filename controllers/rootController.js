@@ -3,7 +3,7 @@ import User from '../models/userdb.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-export const homepage = async (req, res) => {
+export const getHomepage = async (req, res) => {
     if(res.locals.error) {
         console.log("error", res.locals.error)
         res.redirect('/login');
@@ -23,11 +23,11 @@ export const homepage = async (req, res) => {
     
 }
 
-export const authenticate = async (req, res) => {
+export const getAuthentication = async (req, res) => {
     res.render("authenticate", { title: "Sign in" });
 }
 
-export const signup = async (req, res) => {
+export const getSignup = async (req, res) => {
     try {
         const {name, email, pwd} = req.body;
 
@@ -72,7 +72,7 @@ export const signup = async (req, res) => {
     
 };
 
-export const signin =  async (req, res) => {
+export const getSignin =  async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -113,13 +113,13 @@ export const signin =  async (req, res) => {
     }
 };
 
-export const signout = (req, res) => {
+export const getSignout = (req, res) => {
     res.clearCookie("x-access-token");
     res.redirect('/');
 }
 
 
-export const refreshToken = async (req, res) => {
+export const getRefreshToken = async (req, res) => {
     try {
         const user = await User.findOne({username: req.cookies["x-access-token"].name});
         const token = jwt.sign(

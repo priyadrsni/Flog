@@ -1,7 +1,7 @@
 <header>
     <div class="main-header container">
         <a href="/" class="logo"><img src="/images/logo.svg" alt="logo"></a> 
-        <nav>
+        <nav class="main-nav">
             <%if(!locals.user) {%>
                 <a href="/" class="<%= title === 'Homepage' ? 'active' : ''%>">Home</a>
                 <a href="/blogs" class="<%= title === 'All blogs' ? 'active' : ''%>">Recipes</a>
@@ -12,5 +12,25 @@
                 <a href="/profile" class="<%= title === 'Profile' ? 'active' : ''%>"><%=user.username%> <img src="/images/profile-icon.svg" alt="Profile" class="profile"> </a>
             <%}%>
         </nav>
+        <nav class="mobile-nav">
+            <div class="hamburger" id="navBtn"><span class="top"></span><span class="center"></span><span class="bottom"></span></div>
+            <div class="menu">
+                <%if(!locals.user) {%>
+                    <a href="/" class="<%= title === 'Homepage' ? 'active' : ''%>">Home</a>
+                    <a href="/blogs" class="<%= title === 'All blogs' ? 'active' : ''%>">Recipes</a>
+                    <a href="/login" class="<%= title === 'Sign in' ? 'active' : ''%>">Sign In/Register</a>
+                <%} else {%>
+                    <a href="/" class="<%= title === 'Homepage' ? 'active' : ''%>">Home</a>
+                    <a href="/my-blogs" class="<%= title === 'All blogs' ? 'active' : ''%>">My Recipes</a>
+                    <a href="/profile" class="<%= title === 'Profile' ? 'active' : ''%>"><%=user.username%> <img src="/images/profile-icon.svg" alt="Profile" class="profile"> </a>
+                <%}%>
+            </div>
+        </nav>
     </div>
 </header>
+<script>
+    const navBtn = document.getElementById('navBtn');
+    navBtn.addEventListener('click', () => {
+        navBtn.parentElement.classList.toggle('open');
+    })
+</script>
